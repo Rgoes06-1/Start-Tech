@@ -14,19 +14,13 @@
 <body>
 
     <script>
-        var numeroCliente = 0;
-        var idadesAcumuladas = 0;
-        var anoAtual = 2023;
-
         function pularLinha() {
             document.write("<br>");
         }
 
         function cabecalho() {
-            document.write("<header>>> COMEX <<</header><br>")
+            document.write("<h1><header>>> COMEX <<</header><h1><br>")
         }
-
-
 
         function conteudo() {
 
@@ -35,31 +29,21 @@
             document.write(" é um sistema de e-commerce marketplace.")
             document.write(
                 " Seu objetivo é permitir que a  sua base de clientes tenha acesso a vários vendedores e, assim, consolidar - se como o shopping eletrônico mais popular da internet.<br>"
-                )
+            )
         }
-
-
 
         function rodape() {
             document.write("<br><footer>.::Alura LEVEL UP::.</footer>")
         }
 
-        cabecalho();
-        document.write("<h2> .:: Lista de clientes ::. </h2>");
-        document.write("<hr>");
-
         function registrarClientes(nome, mesNascimento, anoNascimento) {
             numeroCliente = numeroCliente + 1;
             document.write("- Código: " + numeroCliente + "<br>");
-
             document.write("Nome: " + nome + "<br>");
             document.write("Mês de nascimento: " + mesNascimento + "<br>");
             document.write("Ano de nascimento: " + anoNascimento + "<br>");
             document.write("<hr>");
-
             idadesAcumuladas = idadesAcumuladas + formatarIdade(anoNascimento);
-
-            
         }
 
         function calcularMedia() {
@@ -71,9 +55,17 @@
 
         function formatarIdade(anoNascimento) {
             let resultado;
-            resultado = anoAtual - anoNascimento;
+            resultado = anoAtual.getFullYear() - anoNascimento;
             return resultado;
         }
+
+        var numeroCliente = 0;
+        var idadesAcumuladas = 0;
+        var anoAtual = new Date();
+
+        cabecalho();
+        document.write("<h2> .:: Lista de clientes ::. </h2>");
+        document.write("<hr>");
         registrarClientes("Fulano", "Fevereiro", 1980);
         registrarClientes("Beltrano", "Maio", 1981);
         registrarClientes("Sicrano", "Novembro", 1984);
@@ -83,6 +75,7 @@
         document.write("<hr>");
         rodape();
     </script>
+
 
 </body>
 
