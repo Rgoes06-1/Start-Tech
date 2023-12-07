@@ -1,25 +1,30 @@
 <!DOCTYPE html>
-
 <html lang="pt-br">
-
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Exercicio-06</title>
-
 </head>
 
 <body>
-
     <script>
         function pularLinha() {
             document.write("<br>");
         }
 
+        function alinhamento() {
+            document.write("<hr>");
+        }
+
         function cabecalho() {
-            document.write("<h1><header>>> COMEX <<</header><h1><br>")
+            document.write("<h1><header>>> COMEX <<</header><h1>")
+        }
+
+        function titulo(title, codigo = 0) {
+            document.write(title);
+            pularLinha();
         }
 
         function conteudo() {
@@ -28,23 +33,26 @@
             document.write("<strong> Comex </strong>")
             document.write(" é um sistema de e-commerce marketplace.")
             document.write(
-                " Seu objetivo é permitir que a  sua base de clientes tenha acesso a vários vendedores e, assim, consolidar - se como o shopping eletrônico mais popular da internet.<br>"
-            )
+                " Seu objetivo é permitir que a  sua base de clientes tenha acesso a vários vendedores e," +
+                " assim, consolidar - se como o shopping eletrônico mais popular da internet.<br>"   )
         }
 
         function rodape() {
-            document.write("<br><footer>.::Alura LEVEL UP::.</footer>")
+            document.write("<br><footer>.::Alura LEVEL UP::.</footer>");
         }
 
         function registrarClientes(nome, mesNascimento, anoNascimento) {
-            numeroCliente = numeroCliente + 1;
-            document.write("- Código: " + numeroCliente + "<br>");
             document.write("Nome: " + nome + "<br>");
-            document.write("Mês de nascimento: " + mesNascimento + "<br>");
+            document.write("Mês de nascimento:" + mesNascimento + "<br>");
             document.write("Ano de nascimento: " + anoNascimento + "<br>");
-            document.write("<hr>");
+            alinhamento();
             idadesAcumuladas = idadesAcumuladas + formatarIdade(anoNascimento);
+            pularLinha();
         }
+
+        function somaIdade(){
+            document.write("Soma das idades: " + idadesAcumuladas + "<br>")
+        };
 
         function calcularMedia() {
             let resultado;
@@ -64,15 +72,18 @@
         var anoAtual = new Date();
 
         cabecalho();
-        document.write("<h2> .:: Lista de clientes ::. </h2>");
-        document.write("<hr>");
-        registrarClientes("Fulano", "Fevereiro", 1980);
-        registrarClientes("Beltrano", "Maio", 1981);
-        registrarClientes("Sicrano", "Novembro", 1984);
-
-        document.write("Soma das idades: " + idadesAcumuladas + "<br>");
+        alinhamento();
+        titulo("<h2> .:: Lista de clientes ::. </h2>");
+        alinhamento();
+        titulo("- Código:" + 1);
+        registrarClientes(" Fulano", " Fevereiro", 1980);
+        titulo("- Código:" + 2);
+        registrarClientes(" Beltrano", " Maio", 1981);
+        titulo("- Código:" + 3);
+        registrarClientes("Sicrano", " Novembro", 1984);
+        somaIdade();
         calcularMedia();
-        document.write("<hr>");
+        pularLinha();
         rodape();
     </script>
 
