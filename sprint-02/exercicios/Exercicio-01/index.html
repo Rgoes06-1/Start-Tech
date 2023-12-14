@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Exercicio-06</title>
+    <title>Exercicio 01 Sprint 02</title>
 </head>
 
 <body>
@@ -28,7 +28,6 @@
         }
 
         function conteudo() {
-
             document.write("O projeto")
             document.write("<b> Comex </b>")
             document.write(" é um sistema de e-commerce marketplace.")
@@ -39,16 +38,16 @@
         }
 
         function rodape() {
-            document.write("<br><footer>.::Alura LEVEL UP::.</footer>");
+            document.write("<br><footer><b>.::Alura LEVEL UP::.</b></footer>");
         }
 
         function registrarClientes(nome, mesNascimento, anoNascimento) {
             document.write("Nome: " + nome + "<br>");
             document.write("Mês de nascimento:" + mesNascimento + "<br>");
             document.write("Ano de nascimento: " + anoNascimento + "<br>");
-            alinhamento();
             idadesAcumuladas = idadesAcumuladas + formatarIdade(anoNascimento);
-            pularLinha();
+            alinhamento();
+
         }
 
         function mostrarEstatisticas() {
@@ -58,6 +57,7 @@
             calcularMedia();
 
         }
+
         function somaIdade() {
             document.write("Soma das idades: " + idadesAcumuladas + "<br>")
         };
@@ -71,26 +71,40 @@
 
         function formatarIdade(anoNascimento) {
             let resultado;
-            resultado = anoAtual.getFullYear() - anoNascimento;
+            resultado = caracteristicaAno - anoNascimento;
+            console.log(resultado);
+
+            if (resultado < 0) {
+                return document.write("Caracteristica Etária: Idade inválida");
+            } else if (resultado <= 17) {
+                document.write("Caracteristica Etária: Adolescente");
+            } else if (resultado >= 18 && resultado <= 29) {
+                document.write("Caracteristica Etária: Jovem");
+            } else if (resultado >= 30 && resultado <= 59) {
+                document.write("Caracteristica Etária: Adulto");
+            } else {
+                document.write("Caracteristica Etária: Idoso");
+            }
+            document.write(`<br> Sua idade é: ${resultado}`);
             return resultado;
         }
 
         var numeroCliente = 0;
         var idadesAcumuladas = 0;
         var anoAtual = new Date();
+        var caracteristicaAno = parseInt(prompt("Digite o ano atual"));
 
         cabecalho();
         titulo("<h2> .:: Lista de clientes ::. </h2>");
         alinhamento();
         titulo("<b> - Código: " + 1 + "</b>");
-        registrarClientes(" Fulano", " Fevereiro", 1980);
+        registrarClientes(" Fulano", " Fevereiro", 2006);
         titulo("<b> - Código: " + 2 + "</b>");
-        registrarClientes(" Beltrano", " Maio", 1981);
+        registrarClientes(" Beltrano", " Maio", 2000);
         titulo("<b> - Código: " + 3 + "</b>");
-        registrarClientes("Sicrano", " Novembro", 1984);
-        mostrarEstatisticas();
-        alinhamento();
+        registrarClientes("Sicrano", " Novembro", 1950);
         rodape();
+        
     </script>
 
 
