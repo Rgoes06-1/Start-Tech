@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function pularLinha() {
+            document.write("<br>");
+        }
+
+        function alinhamento() {
+            document.write("<hr>");
+        }
+
+        function cabecalho() {
+            document.write("<h1><header>>> COMEX <<</header><h1>")
+        }
+
+        function titulo(title, codigo = 0) {
+            document.write(title);
+        }
+
+        function conteudo() {
+            document.write("O projeto")
+            document.write("<b> Comex </b>")
+            document.write(" é um sistema de e-commerce marketplace.")
+            document.write(
+                " Seu objetivo é permitir que a  sua base de clientes tenha acesso a vários vendedores e," +
+                " assim, consolidar - se como o shopping eletrônico mais popular da internet.<br>")
+
+        }
+
+        function rodape() {
+            document.write("<br><footer><b>.::Alura LEVEL UP::.</b></footer>");
+        }
+
+        function registrarClientes() {
+            var caracteristicaAnoAtual = parseInt(prompt("Digite o ano atual:"));
+            
+
+            if (caracteristicaAnoAtual <= 0) {
+                return alert("Ano inválido!");
+            } else {
+                var quantidadeRegistros = parseInt(prompt("Digite a quantidade de registros:"));
+                if (quantidadeRegistros <= 0) {
+                    return alert("Digite novamente a quantidade de registros.")
+                } else {
+                    for (i = 0; i < quantidadeRegistros; i++) {
+                        let user = {
+                            nome: prompt("Digite o seu nome:"),
+                            mesDeNascimento: prompt("Digite o seu mês de nascimento:"),
+                            anoDeNascimento: 2023 - parseInt(prompt("Digite o seu ano de nascimento:"))
+                        }
+                        listaDeClientes.push(user);
+                        idadesAcumuladas += user.anoDeNascimento;
+                    }
+                    console.log(listaDeClientes);
+                    console.log(listaDeClientes.length);
+                    console.log(listaDeClientes[2]);
+                }
+
+            }
+
+        }
+
+        function listarClientes() {
+            for (let i = 0; i < listaDeClientes.length; i++) {
+                let clientes = listaDeClientes[i];
+                document.write(`<h2>Codigo: ${i+1}</h2>`);
+                document.write(`Nome do Cliente: ${clientes.nome} <br>`);
+                document.write(`Mês de Nascimento: ${clientes.mesDeNascimento}<br>`);
+                document.write(`Ano de Nascimento: ${clientes.anoDeNascimento}<br>`);
+                pularLinha();
+                alinhamento();
+
+            }
+        }
+
+        function mostrarEstatisticas() {
+            document.write("***Estatística***");
+            pularLinha();
+            somaIdade();
+            calcularMedia();
+
+        }
+
+        function somaIdade() {
+            document.write("Soma das idades: " + idadesAcumuladas + "<br>")
+        };
+
+        function calcularMedia() {
+            let resultado;
+
+            resultado = Math.round(idadesAcumuladas / 3);
+            document.write("Média das idades: " + resultado);
+        }
+
+        let listaDeClientes = [];
+        let idadesAcumuladas = 0;
+
+        cabecalho();
+        titulo("<h2> .:: Lista de clientes ::. </h2>");
+        alinhamento();
+        registrarClientes();
+        listarClientes();
+        rodape();
+    </script>
+
+</body>
+
+</html>
