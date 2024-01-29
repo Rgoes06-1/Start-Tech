@@ -4,6 +4,7 @@ let buttonListar = document.getElementById("botaoMostrarLista");
 let div = document.querySelector("div");
 div.style.display = "none";
 
+
 let codigoCliente = 0;
 
 function pulaLinha() {
